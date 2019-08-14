@@ -2,6 +2,6 @@ language: node_js
 node_js: 10
 install:
   - npm install
-after_success:
+script:
   - npm run ci:wait -- https://lighthousebot-tests.netlify.com/
   - npm run ci:lighthouse -- https://lighthousebot-tests.netlify.com/
