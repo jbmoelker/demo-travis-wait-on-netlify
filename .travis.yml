@@ -11,5 +11,6 @@ script:
   - |
     PREVIEW_SLUG="deploy-preview-$TRAVIS_PULL_REQUEST"
     PREVIEW_URL="https://$PREVIEW_SLUG--lighthousebot-tests.netlify.com/"
+    echo "Lighthouse audit will start when '$PREVIEW_URL' is ready."
     npm run ci:wait -- "$PREVIEW_URL"
     npm run ci:lighthouse -- "$PREVIEW_URL"
