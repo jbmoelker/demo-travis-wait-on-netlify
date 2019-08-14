@@ -3,5 +3,9 @@ node_js: 10
 install:
   - npm install
 script:
+  - echo "TRAVIS_EVENT_TYPE = $TRAVIS_EVENT_TYPE"
+  - echo "TRAVIS_PULL_REQUEST = $TRAVIS_PULL_REQUEST"
+  - echo "TRAVIS_PULL_REQUEST_SHA = $TRAVIS_PULL_REQUEST_SHA"
+  - echo "TRAVIS_PULL_REQUEST_SLUG = $TRAVIS_PULL_REQUEST_SLUG"
   - npm run ci:wait -- https://lighthousebot-tests.netlify.com/
   - npm run ci:lighthouse -- https://lighthousebot-tests.netlify.com/
