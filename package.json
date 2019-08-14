@@ -6,7 +6,9 @@
   "scripts": {
     "prebuild": "rimraf dist/ && mkdirp dist/client/",
     "build": "ncp src/client/ dist/client/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ci:wait": "wait-on",
+    "ci:lighthouse": "lighthousebot",
+    "test": "echo \"Maybe later\""
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,10 @@
   },
   "homepage": "https://github.com/jbmoelker/lighthousebot-tests#readme",
   "devDependencies": {
+    "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "rimraf": "^2.7.0"
+    "rimraf": "^2.7.0",
+    "wait-on": "^3.3.0"
   }
 }
