@@ -2,10 +2,14 @@ if: type = pull_request
 
 language: node_js
 node_js: 10
+
 install:
   - npm install
+
+# Use the YAML block scalar header (|) to allow easier multiline script coding.
 script:
-  - export PREVIEW_SLUG = "deploy-preview-$TRAVIS_PULL_REQUEST"
-  - export PREVIEW_URL = "https://$PREVIEW_SLUG--lighthousebot-tests.netlify.com/"
-  - npm run ci:wait -- "$PREVIEW_URL"
-  - npm run ci:lighthouse -- "$PREVIEW_URL"
+  - |
+    PREVIEW_SLUG = "deploy-preview-$TRAVIS_PULL_REQUEST"
+    PREVIEW_URL = "https://$PREVIEW_SLUG--lighthousebot-tests.netlify.com/"
+    npm run ci:wait -- "$PREVIEW_URL"
+    npm run ci:lighthouse -- "$PREVIEW_URL"
