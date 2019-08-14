@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "rimraf dist/ && mkdirp dist/client/",
     "build": "ncp src/client/ dist/client/",
+    "postbuild": "sleep 600",
     "ci:wait": "wait-on",
     "ci:lighthouse": "lighthousebot --perf=90 --a11y=100 --seo=90",
     "test": "echo \"Maybe later\""
