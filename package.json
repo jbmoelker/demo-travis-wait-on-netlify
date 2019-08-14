@@ -7,7 +7,7 @@
     "prebuild": "rimraf dist/ && mkdirp dist/client/",
     "build": "ncp src/client/ dist/client/",
     "postbuild": "scripts/write-sha-file.js",
-    "ci:wait": "wait-on",
+    "ci:wait": "wait-on --timeout 1800000",
     "ci:lighthouse": "lighthousebot --perf=90 --a11y=100 --seo=90",
     "test": "echo \"Maybe later\""
   },
