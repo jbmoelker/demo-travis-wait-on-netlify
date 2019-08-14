@@ -7,7 +7,7 @@
     "prebuild": "rimraf dist/ && mkdirp dist/client/",
     "build": "ncp src/client/ dist/client/",
     "ci:wait": "wait-on",
-    "ci:lighthouse": "lighthousebot",
+    "ci:lighthouse": "lighthousebot --perf=90 --a11y=100",
     "test": "echo \"Maybe later\""
   },
   "repository": {
