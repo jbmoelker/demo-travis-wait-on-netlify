@@ -6,10 +6,15 @@ node_js: 10
 install:
   - npm install
 
+# Use set -e so that the build fails when a command fails.
+# The default action for Travis-CI is to continue running even if a command fails.
+# See https://github.com/travis-ci/travis-ci/issues/1066.
 # Use the YAML block scalar header (|) to allow easier multiline script coding.
 script:
+  - set -e
   - |
     PREVIEW_SLUG="deploy-preview-$TRAVIS_PULL_REQUEST"
     PREVIEW_URL="https://$PREVIEW_SLUG--lighthousebot-tests.netlify.com/"
-    npm run ci:wait -- "$PREVIEW_URL"
-    npm run ci:lighthouse -- "$PREVIEW_URL"
+    echo $PREVIEW_URL
+  - npm run ci:wait -- "$PREVIEW_URL"
+  - npm run ci:lighthouse -- "$PREVIEW_URL"
