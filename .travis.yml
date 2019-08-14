@@ -13,8 +13,8 @@ install:
 script:
   - set -e
   - |
-    PREVIEW_SLUG="deploy-preview-$TRAVIS_PULL_REQUEST"
-    PREVIEW_URL="https://$PREVIEW_SLUG--lighthousebot-tests.netlify.com/"
-    echo $PREVIEW_URL
-  - npm run ci:wait -- "$PREVIEW_URL"
-  - npm run ci:lighthouse -- "$PREVIEW_URL"
+    NETLIFY_PREVIEW_SLUG="deploy-preview-$TRAVIS_PULL_REQUEST"
+    NETLIFY_PREVIEW_URL="https://$NETLIFY_PREVIEW_SLUG--lighthousebot-tests.netlify.com/"
+    echo $NETLIFY_PREVIEW_URL
+  - npm run ci:wait -- "$NETLIFY_PREVIEW_URL$TRAVIS_PULL_REQUEST_SHA.txt"
+  - npm run ci:lighthouse -- "$NETLIFY_PREVIEW_URL"
